@@ -2,14 +2,13 @@ import random
 
 num = random.randint(0,100)
 
-print("")
 previous_pick = None
 while True:
-    pick = int(input('pick a number betwen 0 and 100 :'))
+    pick = int(input('Pick a number between 0 and 100 :'))
     if pick > 100 or pick < 0:
         print("OUT OF BOUNDS")
     elif pick == num:
-        print(f"your pick : {pick} is equal to the num : {num}")
+        print(f"Congratulations! your pick : {pick} is equal to the num : {num}")
         break
     if previous_pick == None:
         if pick > num-10 and pick < num+10 and pick != num:
@@ -17,9 +16,9 @@ while True:
         elif pick < num-10 or pick > num+10:
             print("COLD!")
     else:
-        if num - previous_pick < num - pick:
+        if abs(num - previous_pick) < abs(num - pick):
             print("COLDER!")
-        elif num - previous_pick > num - pick:
+        elif abs(num - previous_pick) > abs(num - pick):
             print("WARMER!")
     previous_pick = pick
     
